@@ -1,0 +1,14 @@
+
+query JobList{
+  jobs {
+    id
+    title
+    description
+    company {
+        logoUrl
+          name
+      }
+    locationNames
+  }
+}
+
