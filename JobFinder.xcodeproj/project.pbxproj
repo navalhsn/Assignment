@@ -24,6 +24,10 @@
 		510E25EB27E707AD006F0B3C /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 510E25EA27E707AD006F0B3C /* ApolloWebSocket */; };
 		510E25EE27E708B5006F0B3C /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 510E25ED27E708B5006F0B3C /* NVActivityIndicatorView */; };
 		510E25F027E70912006F0B3C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E25EF27E70912006F0B3C /* Common.swift */; };
+		510E25F227E7451F006F0B3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E25F127E7451F006F0B3C /* UILabel+Extension.swift */; };
+		510E25F427E75613006F0B3C /* SearchJobUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E25F327E75613006F0B3C /* SearchJobUnitTests.swift */; };
+		510E25F627E75AA7006F0B3C /* SearchJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E25F527E75AA7006F0B3C /* SearchJobsUITests.swift */; };
+		512F025D27E77EA300488C5B /* jobDetailsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F025C27E77EA300488C5B /* jobDetailsUnitTests.swift */; };
 		51B8687A27E359B2003D0E5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8687927E359B2003D0E5E /* AppDelegate.swift */; };
 		51B8687C27E359B2003D0E5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8687B27E359B2003D0E5E /* SceneDelegate.swift */; };
 		51B8687E27E359B2003D0E5E /* SearchJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8687D27E359B2003D0E5E /* SearchJobViewController.swift */; };
@@ -67,6 +71,10 @@
 		510E25DF27E608E1006F0B3C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		510E25E427E702FE006F0B3C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		510E25EF27E70912006F0B3C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		510E25F127E7451F006F0B3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		510E25F327E75613006F0B3C /* SearchJobUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJobUnitTests.swift; sourceTree = "<group>"; };
+		510E25F527E75AA7006F0B3C /* SearchJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJobsUITests.swift; sourceTree = "<group>"; };
+		512F025C27E77EA300488C5B /* jobDetailsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobDetailsUnitTests.swift; sourceTree = "<group>"; };
 		51B8687627E359B2003D0E5E /* JobFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B8687927E359B2003D0E5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51B8687B27E359B2003D0E5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 		510E25CC27E5A71F006F0B3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				510E25C127E4E797006F0B3C /* JobList.graphql */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +169,7 @@
 				510E25DD27E608E1006F0B3C /* UIColor+Extension.swift */,
 				510E25DF27E608E1006F0B3C /* UIImageView+Extension.swift */,
 				510E25DE27E608E1006F0B3C /* UIView+Extension.swift */,
+				510E25F127E7451F006F0B3C /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -171,6 +181,14 @@
 				510E25E427E702FE006F0B3C /* BaseViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		512F025E27E801D600488C5B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				510E25C727E501CD006F0B3C /* Network.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		51B8686D27E359B2003D0E5E = {
@@ -196,20 +214,19 @@
 		51B8687827E359B2003D0E5E /* JobFinder */ = {
 			isa = PBXGroup;
 			children = (
+				512F025E27E801D600488C5B /* Network */,
 				510E25E327E702F4006F0B3C /* Common */,
+				510E25DC27E608D9006F0B3C /* Extension */,
 				510E25CC27E5A71F006F0B3C /* Model */,
 				510E25CB27E5A719006F0B3C /* View */,
 				510E25CA27E5A710006F0B3C /* ViewModel */,
-				510E25DC27E608D9006F0B3C /* Extension */,
 				51B8687927E359B2003D0E5E /* AppDelegate.swift */,
 				51B8687B27E359B2003D0E5E /* SceneDelegate.swift */,
 				51B8687F27E359B2003D0E5E /* Main.storyboard */,
 				51B8688527E359B3003D0E5E /* Assets.xcassets */,
 				51B8688727E359B3003D0E5E /* LaunchScreen.storyboard */,
 				510E25BD27E4E48D006F0B3C /* schema.json */,
-				510E25C727E501CD006F0B3C /* Network.swift */,
 				510E25C527E50122006F0B3C /* API.swift */,
-				510E25C127E4E797006F0B3C /* JobList.graphql */,
 				51B8688A27E359B3003D0E5E /* Info.plist */,
 				51B8688227E359B2003D0E5E /* JobFinder.xcdatamodeld */,
 			);
@@ -220,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				51B8689327E359B3003D0E5E /* JobFinderTests.swift */,
+				510E25F327E75613006F0B3C /* SearchJobUnitTests.swift */,
 			);
 			path = JobFinderTests;
 			sourceTree = "<group>";
@@ -229,6 +247,8 @@
 			children = (
 				51B8689D27E359B3003D0E5E /* JobFinderUITests.swift */,
 				51B8689F27E359B3003D0E5E /* JobFinderUITestsLaunchTests.swift */,
+				510E25F527E75AA7006F0B3C /* SearchJobsUITests.swift */,
+				512F025C27E77EA300488C5B /* jobDetailsUnitTests.swift */,
 			);
 			path = JobFinderUITests;
 			sourceTree = "<group>";
@@ -407,6 +427,7 @@
 				510E25E527E702FE006F0B3C /* BaseViewController.swift in Sources */,
 				510E25D927E5DC92006F0B3C /* JobDescriptionViewController.swift in Sources */,
 				51B8687A27E359B2003D0E5E /* AppDelegate.swift in Sources */,
+				510E25F227E7451F006F0B3C /* UILabel+Extension.swift in Sources */,
 				510E25E127E608E1006F0B3C /* UIView+Extension.swift in Sources */,
 				51B8687C27E359B2003D0E5E /* SceneDelegate.swift in Sources */,
 				510E25CF27E5A754006F0B3C /* JobsTableViewCell.swift in Sources */,
@@ -422,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51B8689427E359B3003D0E5E /* JobFinderTests.swift in Sources */,
+				510E25F427E75613006F0B3C /* SearchJobUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +451,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512F025D27E77EA300488C5B /* jobDetailsUnitTests.swift in Sources */,
 				51B868A027E359B3003D0E5E /* JobFinderUITestsLaunchTests.swift in Sources */,
+				510E25F627E75AA7006F0B3C /* SearchJobsUITests.swift in Sources */,
 				51B8689E27E359B3003D0E5E /* JobFinderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

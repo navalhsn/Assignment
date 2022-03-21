@@ -15,7 +15,7 @@ extension SearchjobViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.jobsTableCellIdentifier) as! JobsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.jobsTableCellIdentifier) as! JobsTableViewCell
         let dataAtIndex = jobsArray[indexPath.row]
         cell.bgView.dropShadow(cornerRadius: 8)
         cell.jobTitleLabel.text = dataAtIndex.title
@@ -33,7 +33,7 @@ extension SearchjobViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dataAtIndex = jobsArray[indexPath.row]
-        let vc = storyboard?.instantiateViewController(withIdentifier: viewControllerIdentifiers.jobsDescriptionIdentifier) as! JobDescriptionViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.jobsDescriptionIdentifier) as! JobDescriptionViewController
         vc.jobsData = dataAtIndex
         self.navigationController?.pushViewController(vc, animated: true)
     }

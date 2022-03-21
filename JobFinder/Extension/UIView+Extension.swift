@@ -19,6 +19,8 @@ extension UIView {
         self.layer.masksToBounds = true
     }
     
+    // This function is used to add shadow to UIView
+    // Usage: viewInstance.dropShadow(cornerRadius: 10)
     func dropShadow(cornerRadius: Float) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 2, height: 3)
@@ -26,7 +28,6 @@ extension UIView {
         layer.cornerRadius = CGFloat(cornerRadius)
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 3
-        //layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
     }

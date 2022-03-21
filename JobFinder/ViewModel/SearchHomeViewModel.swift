@@ -12,7 +12,6 @@ struct SearchHomeViewModel {
         Network.shared.apollo.fetch(query: JobListQuery()) { result in
           switch result {
           case .success(let graphQLResult):
-            print("Success! Result: \(graphQLResult)")
               handler(graphQLResult.data!.jobs)
           case .failure(let error):
             print("Failure! Error: \(error)")

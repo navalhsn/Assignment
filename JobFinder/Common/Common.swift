@@ -17,12 +17,21 @@ struct ColorValues {
     static let themeColor = "#B29EF0"
 }
 
-struct cellIdentifiers {
+struct CellIdentifiers {
     // Home
     static let jobsTableCellIdentifier = "JobsTableViewCell"
 }
 
-struct viewControllerIdentifiers {
+struct ViewControllerIdentifiers {
     // Home
     static let jobsDescriptionIdentifier = "JobDescriptionViewController"
+}
+
+struct NavigationTitles {
+    // Home
+    static let jobSearchTitle = "Explore"
+}
+
+struct FontValues {
+    static let HelveticaNeueBold = "HelveticaNeue-Bold"
 }

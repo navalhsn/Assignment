@@ -19,6 +19,7 @@ class SearchjobViewController: BaseViewController {
     // #MARK: VCLC
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupHomeNavigation()
         configureUIElementsWithApi()
         setupTabBar() 
     }

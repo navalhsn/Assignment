@@ -7,22 +7,11 @@
 
 import UIKit
 import NVActivityIndicatorView
-import Kingfisher
 
 class BaseViewController: UIViewController {
     //#MARK: Declarations
     var activityIndicator: NVActivityIndicatorView!
     var bgView: UIView = UIView()
-    var setCustomHomeNavigation: UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 35))
-        let logoImage = UIImageView.init(frame: view.frame)
-        logoImage.image  = UIImage(named: "app_logo_navigation")
-        logoImage.contentMode = .scaleAspectFit
-        view.addSubview(logoImage);
-        logoImage.center.x = view.frame.width/2;
-        logoImage.center.y = CGFloat(view.frame.height/2);
-        return view
-    }
     
     //#MARK: VCLC
     override func viewDidLoad() {
@@ -30,12 +19,9 @@ class BaseViewController: UIViewController {
         setupActivityIndicator()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setupNavigation(animated)
-    }
     
     //#MARK: Navigation controller
-    func setupNavigation(_ animated: Bool) {
+    func setupHomeNavigation() {
         guard let navFrame = navigationController?.navigationBar.frame else{
                 return
             }
@@ -44,18 +30,42 @@ class BaseViewController: UIViewController {
         self.navigationItem.titleView = parentView
             
         let label = UILabel(frame: .init(x: 20, y: parentView.frame.minY, width: parentView.frame.width, height: parentView.frame.height))
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 32.0)
+        label.font = UIFont(name: FontValues.HelveticaNeueBold, size: 32.0)
         label.backgroundColor = .clear
         label.textAlignment = .left
-        label.text = "Explore"
+        label.text = NavigationTitles.jobSearchTitle
         parentView.addSubview(label)
         
         let menuButton = UIButton()
         menuButton.frame = CGRect(x: self.view.frame.width - 80, y: 0, width: 30, height: 30)
-        menuButton.setImage(UIImage(named: "menu_hamburger"), for: .normal)
+        let hamImage = #imageLiteral(resourceName: "menu_hamburger")
+        menuButton.setImage(hamImage, for: .normal)
         menuButton.backgroundColor = UIColor(ColorValues.themeColor)
         menuButton.dropShadow(cornerRadius: 4)
         parentView.addSubview(menuButton)
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+    }
+    
+    func setupDetailNavigationBar() {
+        navigationItem.hidesBackButton = true
+        let backButton = UIButton()
+        backButton.frame = CGRect(x:0, y:0, width:40, height:40)
+        backButton.backgroundColor = UIColor.white
+        backButton.dropShadow(cornerRadius: 20)
+        let backImage = #imageLiteral(resourceName: "back_button")
+        backButton.setImage(backImage, for: .normal)
+        backButton.configuration?.imagePadding = CGFloat(10.0)
+        backButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        backButton.addTarget(self, action: #selector(back(sender:)), for: .touchUpInside)
+        let leftBarButton = UIBarButtonItem(customView: backButton)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setupActivityIndicator() {
@@ -75,8 +85,7 @@ class BaseViewController: UIViewController {
         bgView.backgroundColor = .black
         bgView.alpha = 0.4
         self.view.addSubview(bgView)
-        
-        // self.view = backgroundView
+        self.bgView.isHidden = true
         self.view.addSubview(activityIndicator)
     }
     
@@ -92,5 +101,10 @@ class BaseViewController: UIViewController {
             self.bgView.isHidden = true
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    // #MARK: Actions
+    @objc func back(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated:true)
     }
 }
